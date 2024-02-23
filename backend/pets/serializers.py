@@ -18,6 +18,7 @@ class PetSerializer(serializers.ModelSerializer):
 
 class AdvertisementSerializer(serializers.ModelSerializer):
     author = UserCustomSerializer(read_only=True)
+    pet = PetSerializer(read_only=True)
 
     class Meta:
         model = models.Advertisement

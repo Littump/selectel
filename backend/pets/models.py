@@ -16,15 +16,18 @@ class Pet(models.Model):
 
 
 class Advertisement(models.Model):
-    type = models.CharField(max_length=150)
-    blood_type = models.CharField(max_length=150)
     need_blood_types = models.CharField(max_length=100)
     date = models.DateTimeField(blank=True)
     city = models.CharField(max_length=150)
     address = models.CharField(max_length=150)
+    reason = models.TextField(blank=True)
     progress = models.IntegerField(blank=True)
+    blood_amount = models.IntegerField(blank=True)
+    contact = models.CharField(max_length=150, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='advertisements')
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE,
+                            related_name='advertisements')
 
 
 class Request(models.Model):
