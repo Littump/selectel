@@ -20,6 +20,7 @@ class Advertisement(models.Model):
     date = models.DateTimeField(blank=True)
     city = models.CharField(max_length=150)
     address = models.CharField(max_length=150)
+    reason = models.TextField(blank=True)
     progress = models.IntegerField(blank=True)
     blood_amount = models.IntegerField(blank=True)
     contact = models.CharField(max_length=150, blank=True)
