@@ -6,11 +6,7 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 import numpy as np
 import nltk
-
 punctuation = list(punctuation)
-nltk.download('wordnet')
-nltk.download('punkt')
-
 
 class Singleton(type):
     _instances = {}
