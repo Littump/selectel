@@ -3,7 +3,7 @@ from django_filters.rest_framework import FilterSet
 from pets import models
 
 
-class PetFilter(FilterSet):
+class AdvertisementFilter(FilterSet):
     type = rest_framework.CharFilter(
         field_name='type',
         lookup_expr='exact'
@@ -14,14 +14,22 @@ class PetFilter(FilterSet):
         lookup_expr='exact'
     )
 
-    blood_type = rest_framework.CharFilter(
+    need_blood_types = rest_framework.CharFilter(
         method='is_have_blood_type',
     )
 
     class Meta:
         model = models.Pet
-        fields = ['type', 'blood_type', 'city']
+        fields = ['type', 'need_blood_types', 'city']
 
     def is_have_blood_type(self, queryset, name, value):
         bloods = value.split(';')
-        return queryset.filter(blood_type__in=bloods)
+        querysets = [
+            queryset.filter(need_blood_types__contains=blood)
+            for blood in bloods
+        ]
+
+        queryset = querysets[0]
+        for q in querysets[1:]:
+            queryset = queryset | q
+        return queryset.distinct()
