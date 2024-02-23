@@ -16,8 +16,6 @@ class Pet(models.Model):
 
 
 class Advertisement(models.Model):
-    type = models.CharField(max_length=150)
-    blood_type = models.CharField(max_length=150)
     need_blood_types = models.CharField(max_length=100)
     date = models.DateTimeField(blank=True)
     city = models.CharField(max_length=150)
@@ -25,6 +23,8 @@ class Advertisement(models.Model):
     progress = models.IntegerField(blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='advertisements')
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE,
+                            related_name='advertisements')
 
 
 class Request(models.Model):
