@@ -8,8 +8,6 @@ from pets import models, serializers, filters
 class PetViewSet(viewsets.ModelViewSet):
     queryset = models.Pet.objects.all()
     serializer_class = serializers.PetSerializer
-    filter_backends = (DjangoFilterBackend, )
-    filterset_class = filters.PetFilter
 
     @action(detail=False, methods=['GET'])
     def me(self, request):
@@ -21,6 +19,8 @@ class PetViewSet(viewsets.ModelViewSet):
 class AdvertisementViewSet(viewsets.ModelViewSet):
     queryset = models.Advertisement.objects.all()
     serializer_class = serializers.AdvertisementSerializer
+    filter_backends = (DjangoFilterBackend, )
+    filterset_class = filters.AdvertisementFilter
 
     @action(detail=False, methods=['GET'])
     def me(self, request):
