@@ -1,12 +1,13 @@
 @import '../../shared/styles/colors.scss';
 
 .wrapper {
-	padding-top: 118px;
-	padding-left: 115px;
-	padding-bottom: 200px;
+	padding-top: 89px;
+	padding-bottom: 154px;
 	display: flex;
 	flex-direction: column;
 	gap: 32px;
+	width: 400px;
+	margin: 0 auto;
 }
 .title{
 	font-weight: 700px;

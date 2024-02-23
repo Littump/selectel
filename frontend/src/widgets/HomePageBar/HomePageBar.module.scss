@@ -1,0 +1,39 @@
+@import '../../shared/styles/colors.scss';
+.wrapper{
+	width: 100%;
+	border-radius: 80px;
+	height: 280px;
+	background-image: linear-gradient(157deg, #F63E3E 37%, #A35077 69%, #A35077 81%, #A35077 88%, #A35077 92%, #A35077 95%, #A35077 97%, #A35077 99%, #A35077  100%, #A35077 100%, #A35077 100%, #A35077 100%);
+	padding: 40px 60px 0px 60px;
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+.title{
+	font-weight: 900;
+	font-size: 40px;
+	line-height: 44px;
+	color: #FFFFFF;
+	display: inline;
+}
+.donor{
+	color: #5E4040;
+}
+.btn {
+	background-color: $white;
+	color: $red;
+	padding: 9px 40px 9px 40px;
+}
+.icons{
+	position: relative;
+}
+.icon{
+	position: absolute;
+	height: 260px;
+	top: -20px;
+}
+.figure{
+	height: 210px;
+	left: 60px;
+	top: 30px;
+}

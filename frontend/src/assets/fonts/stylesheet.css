@@ -18,3 +18,10 @@
 	font-style: normal;
 	font-weight: 500;
 }
+@font-face {
+	font-family: Nunito;
+	src: url('./Nunito-ExtraBold.ttf');
+	font-display: swap;
+	font-style: normal;
+	font-weight: 900;
+}

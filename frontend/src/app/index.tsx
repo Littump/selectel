@@ -1,8 +1,12 @@
 import { Routing } from "pages"
+import { Provider } from 'react-redux'
 import './App.scss'
+import store from "./store"
 function App() {
   return (
-    <Routing/>
+    <Provider store={store}>
+      <Routing/>
+    </Provider>
   )
 }
 

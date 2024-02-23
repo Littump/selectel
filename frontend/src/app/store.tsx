@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {useDispatch} from 'react-redux'
-const rootReducer = combineReducers({
+import RegistrationSlice from "widgets/model/RegistrationSlice";
 
+const rootReducer = combineReducers({
+	RegistrationSlice,
 })
 
 const store = configureStore({

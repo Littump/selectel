@@ -1,13 +1,11 @@
-import { Title } from "shared" 
-import { EntryWindow } from "widgets"
+import { RegistrationWidget } from "widgets"
 
-
+import styles from './RegistrationPage.module.scss'
 const RegistrationPage = () => {
 	return (
-		<>
-			<Title>Регистрация</Title>
-			<EntryWindow/>
-		</>
+		<div className={styles.page}>
+			<RegistrationWidget/>
+		</div>
 	)
 }
 

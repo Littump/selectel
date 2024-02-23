@@ -8,8 +8,16 @@ interface IProps {
 	type: 'registration' | 'other'
 }
 
+
+
 const Header = memo((props: IProps) => {
 	const { type = 'other'} = props
+	const areButtonsVisible = () => {
+		if (type === 'registration' || !!localStorage.getItem('token')) {
+			return true
+		}
+		return false
+	}
 	return (
 		<div className={styles.header}>
 			<div className={styles.header__links}>
@@ -29,7 +37,7 @@ const Header = memo((props: IProps) => {
 					<Text type="light" fontSize={18}>Где сдать кровь?</Text>
 				</Link>
 			</div>
-			{type === 'registration' ? null 
+			{areButtonsVisible() ? null 
 			:<div className={styles.header__btns}>
 			<Btn type="tonal" to={routes.loginPage}>Войти</Btn>
 			<Btn type="outlined" to={routes.registrationPage}>Зарегистрироваться</Btn>

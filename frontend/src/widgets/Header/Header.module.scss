@@ -1,8 +1,10 @@
+@import '../../shared/styles/colors.scss';
 .header{
 	padding: 19px 19px 16px 19px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	background-color: $grey;
 	&__link{
 		text-decoration: none;
 		color: black;
