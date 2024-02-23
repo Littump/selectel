@@ -1,25 +1,23 @@
+from string import punctuation
+
+import nltk
 from joblib import load
 from nltk.tokenize import word_tokenize
-from string import punctuation
-from sklearn.feature_extraction.text import TfidfVectorizer
-import pandas as pd
-from sklearn.linear_model import LogisticRegression
-import numpy as np
-import nltk
-punctuation = list(punctuation)
-
-class Singleton(type):
-    _instances = {}
-
-    def __call__(cls, *args, **kwargs):
-        if cls not in cls._instances:
-            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
-        return cls._instances[cls]
 
 
-class ModelReducer(metaclass=Singleton):
+class Singleton:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+
+class ModelReducer(Singleton):
     # Инициализация модели и векторайзера
     def __init__(self):
+        self.punctuation = list(punctuation)
         self.model_spam = load('spam_clf.joblib')
         self.vectorizer = load('vectorizer.joblib')
         self.lemmatizer = nltk.WordNetLemmatizer()
@@ -31,6 +29,7 @@ class ModelReducer(metaclass=Singleton):
     def spam_or_not(self, s):
         # Нормализуем строку
         s_norm = self._normalize_text(s)
+
         # Получаем вектор строки
         vector = self.vectorizer.transform([s_norm])
 
@@ -49,7 +48,8 @@ class ModelReducer(metaclass=Singleton):
         stopwords = nltk.corpus.stopwords.words('russian')
         words_without_stop = [i for i in low_tokens if i not in stopwords]
         # Лемматизация
-        lemms = [self.lemmatizer.lemmatize(word) for word in words_without_stop]
+        lemms = [self.lemmatizer.lemmatize(word)
+                 for word in words_without_stop]
         # Вывод значения в строке
         total = ''
         for el in lemms:

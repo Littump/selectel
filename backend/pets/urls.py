@@ -3,11 +3,9 @@ from django.urls import include, path
 
 from pets import views
 
-app_name = 'pets'
-
 v1_router = DefaultRouter()
-v1_router.register(app_name, views.PetViewSet, basename=app_name)
-v1_router.register('advertisements', views.AdvertisementViewSet,
+v1_router.register(r'pets', views.PetViewSet, basename='pets')
+v1_router.register(r'advertisements', views.AdvertisementViewSet,
                    basename='advertisements')
 
 urlpatterns = [

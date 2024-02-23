@@ -7,8 +7,8 @@ from selectel.yasg import urlpatterns as doc_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('users.urls')),
-    path('', include('pets.urls')),
+    path('api/', include('users.urls')),
+    path('api/', include('pets.urls')),
 ]
 
 urlpatterns += doc_urls
