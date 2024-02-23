@@ -1,9 +1,8 @@
-
+import { Routing } from "pages"
+import './App.scss'
 function App() {
   return (
-    <>
-      Hello world
-    </>
+    <Routing/>
   )
 }
 

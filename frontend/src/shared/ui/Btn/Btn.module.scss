@@ -1,0 +1,18 @@
+@import '../../styles/colors.scss';
+.btn{
+	min-width: 160px;
+	padding: 8px 65px 8px 65px;
+	border-radius: 25px;
+	text-decoration: none;
+	cursor: pointer;
+	display: inline;
+}
+.tonal{
+	border: 2px solid $red;
+	color: $red;
+	background-color: $white;
+}
+.outlined{
+	background-color: $red;
+	color: $white;
+}
