@@ -21,6 +21,7 @@ class Advertisement(models.Model):
     city = models.CharField(max_length=150)
     address = models.CharField(max_length=150)
     progress = models.IntegerField(blank=True)
+    blood_amount = models.IntegerField(blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='advertisements')
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE,
