@@ -5,6 +5,7 @@ import { Header } from "widgets";
 import EditUserPage from "./EditUserPage/EditUserPage";
 import EditPetPage from "./EditPetPage/EditPetPage";
 import AddPetPage from "./AddPetPage/AddPetPage";
+import FindDonor from "widgets/FindDonor/FindDonor";
 const LoginPage = lazy(() => import("./LoginPage/LoginPage"));
 const RegistrationPage = lazy(
     () => import("./RegistrationPage/RegistrationPage")
@@ -16,11 +17,9 @@ const ProfilePage = lazy(() => import("./ProfilePage/ProfilePage"));
 // 	isLoginPage: boolean
 // }
 const PrivateRoute = () => {
-	const auth = !!localStorage.getItem('token')
-	return (
-		auth ? <Navigate to={routes.homePage}/> : <Outlet/>
-	)
-}
+    const auth = !!localStorage.getItem("token");
+    return auth ? <Navigate to={routes.homePage} /> : <Outlet />;
+};
 interface ILayoutProps {
     type: "registration" | "other";
 }
@@ -56,8 +55,8 @@ export const Routing = memo(() => {
             <Route path={routes.addPet} element={<Layout type={"other"} />}>
                 <Route index element={<AddPetPage />} />
             </Route>
-            <Route path={routes.request} element={<Layout type={"other"} />}>
-                <Route index element={<ProfilePage />} />
+            <Route path={routes.findDonor} element={<Layout type={"other"} />}>
+                <Route index element={<FindDonor />} />
             </Route>
             <Route
                 path={routes.requestEdit}

@@ -6,7 +6,6 @@ import { Formik } from "formik";
 import { Form } from "formik";
 import parse from "date-fns/parse";
 
-
 const validationSchema = Yup.object().shape({
     name: Yup.string()
         .min(2, "Слишком короткий!")
@@ -161,8 +160,10 @@ const EditPetInputs = memo((props: Props) => {
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values) => {
+                if (type != "edit") {
+                    alert(JSON.stringify(values, null, 2));
+                } else alert(JSON.stringify(values, null, 2));
                 // здесь разные запросы в зависимости от type
-                alert(JSON.stringify(values, null, 2));
             }}
         >
             {({ touched, errors }) => (

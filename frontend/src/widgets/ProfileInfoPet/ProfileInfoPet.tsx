@@ -37,7 +37,7 @@ const ProfileInfoPet = memo((props: Props) => {
                         Редактировать
                     </Btn>
                     {/* здесь переход на поиск донора, реализованного ваней */}
-                    <Btn to="/" type="tonal" width="260px">
+                    <Btn to={`/pet/${1}/findDonor`} type="tonal" width="260px">
                         Найти донора
                     </Btn>
                 </div>

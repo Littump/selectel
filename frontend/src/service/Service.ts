@@ -37,23 +37,73 @@ export const managerAPI = createApi({
             }),
         }),
         updateMe: build.mutation({
-            query: ({ username, email, logo, name }) => {
-                const form_data = new FormData();
-                if (logo.path !== undefined) {
-                    form_data.append("logo", logo, logo?.path);
-                }
-                form_data.append("username", username);
-                form_data.append("email", email);
-                form_data.append("name", name);
-                return {
-                    url: `auth/users/me/`,
-                    method: "PATCH",
-                    headers: {
-                        Authorization: `Token ${localStorage.getItem("token")}`,
-                    },
-                    body: form_data,
-                };
-            },
+            query: ({ username, email, name }) => ({
+                url: `api/users/me`,
+                method: "PATCH",
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("token")}`,
+                },
+                body: {
+                    username,
+                    email,
+                    name,
+                },
+            }),
+        }),
+        addPet: build.mutation({
+            query: ({ name, breed }) => ({
+                url: `api/pets/`,
+                method: "POST",
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("token")}`,
+                },
+                body: {
+                    name,
+                    breed,
+                },
+            }),
+        }),
+        editPet: build.mutation({
+            query: ({ name, breed, id }) => ({
+                url: `api/pets/${id}/`,
+                method: "PUTCH",
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("token")}`,
+                },
+                body: {
+                    name,
+                    breed,
+                },
+            }),
+        }),
+        deletePet: build.mutation({
+            query: ({ id }) => ({
+                url: `api/pets/${id}/`,
+                method: "DELETE",
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("token")}`,
+                },
+            }),
+        }),
+        getAds: build.query({
+            query: () => ({
+                url: `api/advertisements/`,
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("token")}`,
+                },
+            }),
+        }),
+        addAd: build.mutation({
+            query: ({ info }) => ({
+                url: `api/advertisements/`,
+                method: "POST",
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("token")}`,
+                },
+                body: {
+                    info,
+                },
+            }),
         }),
     }),
 });
@@ -62,7 +112,12 @@ export const {
     useSigninMutation,
     useSignupMutation,
     useGetMeQuery,
+    useAddPetMutation,
     useUpdateMeMutation,
+    useDeletePetMutation,
+    useEditPetMutation,
+    useAddAdMutation,
+    useGetAdsQuery,
 } = managerAPI;
 
-export const { signin, signup, getMe, updateMe } = managerAPI.endpoints;
+export const { signin, signup, getMe, addPet, updateMe } = managerAPI.endpoints;
