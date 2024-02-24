@@ -13,13 +13,17 @@ import EditUser from "./EditUser/EditUser";
 import EditPet from "./EditPet/EditPet";
 
 export {
-	EntryWindow,
-	Header,
-	LeftColumnReg,
-	MainPartLogin,
-	model,
-	RegistrationWidget,
-	HomePageBar,
-	RegistrationSlice,
-	PetCard,
-}
+    EntryWindow,
+    Header,
+    LeftColumnReg,
+    MainPartLogin,
+    model,
+    RegistrationWidget,
+    HomePageBar,
+    RegistrationSlice,
+    PetCard,
+    EditPet,
+    EditUser,
+    ProfileInfo,
+    AddPet,
+};

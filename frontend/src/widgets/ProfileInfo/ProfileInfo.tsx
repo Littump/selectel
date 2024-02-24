@@ -6,6 +6,7 @@ import { Btn, Title } from "shared";
 import user from "../../assets/images/user.png";
 import pet from "../../assets/images/pet.png";
 import ProfileRequest from "widgets/ProfileRequest/ProfileRequest";
+import { useGetMeQuery } from "service/Service";
 
 interface PetFact {
     title: string;
@@ -35,6 +36,7 @@ interface User {
 }
 
 const ProfileInfo = memo(() => {
+    const query = useGetMeQuery();
     const userInfo: User = {
         url: user,
         firstName: "Иван",
