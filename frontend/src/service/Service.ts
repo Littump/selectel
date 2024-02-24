@@ -21,9 +21,9 @@ export const managerAPI = createApi({
                     url: `api/users/`,
                     method: "POST",
                     body: {
-                        username: "andrew1532",
-                        email: "somemail@mail.ru",
-                        password: "somepassword1532",
+                        username,
+                        email,
+                        password,
                     },
                 };
             },
