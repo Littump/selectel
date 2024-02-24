@@ -1,0 +1,30 @@
+@import "../../shared/styles/colors.scss";
+.wrapper {
+    display: flex;
+    gap: 4rem;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.petInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.name,
+.breed {
+    color: $red;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}

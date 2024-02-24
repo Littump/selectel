@@ -1,3 +1,5 @@
+import AddPet from "./AddPet/AddPet";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import EntryWindow from "./EntryWindow/EntryWindow";
 import Header from "./Header/Header";
 import LeftColumnReg from "./LeftColumnReg/LeftColumnReg";
@@ -6,7 +8,9 @@ import * as model from "./model/RegistrationSlice";
 import RegistrationWidget from "./RegistrationWidget/RegistrationWidget";
 import HomePageBar from "./HomePageBar/HomePageBar";
 import RegistrationSlice from "./model/RegistrationSlice";
-import PetCard from "./PerCard/PetCard";
+import PetCard from "./PetCard/PetCard";
+import EditUser from "./EditUser/EditUser";
+import EditPet from "./EditPet/EditPet";
 
 export {
 	EntryWindow,
@@ -18,4 +22,8 @@ export {
 	HomePageBar,
 	RegistrationSlice,
 	PetCard,
+	AddPet,
+	ProfileInfo,
+	EditUser,
+	EditPet
 }

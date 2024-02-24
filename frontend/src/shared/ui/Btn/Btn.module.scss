@@ -1,18 +1,37 @@
-@import '../../styles/colors.scss';
-.btn{
-	min-width: 160px;
-	padding: 8px 65px 8px 65px;
-	border-radius: 25px;
-	text-decoration: none;
-	cursor: pointer;
-	display: inline;
+@import "../../styles/colors.scss";
+.btn {
+    min-width: 160px;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.tonal{
-	border: 2px solid $red;
-	color: $red;
-	background-color: $white;
+.tonal {
+    padding: 8px 65px 8px 65px;
+    border: 2px solid $red;
+    color: $red;
+    background-color: $white;
+    transition: 0.1s;
+    &:hover {
+        background-color: $red;
+        color: white;
+    }
 }
-.outlined{
-	background-color: $red;
-	color: $white;
+.outlined {
+    padding: 8px 65px 8px 65px;
+    background-color: $red;
+    color: $white;
+    transition: 0.2s;
+    &:hover {
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+    }
+}
+.text {
+    color: $red;
+    transition: 0.1s;
+    &:hover {
+        color: black;
+    }
 }

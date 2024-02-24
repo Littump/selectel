@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.name {
+    font-weight: 400;
+}
+
+.address {
+    text-align: center;
+    font-weight: 300;
+}

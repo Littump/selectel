@@ -1,2 +1,13 @@
-
+@import '../../shared/styles/colors.scss';
+.card {
+	background-color: $grey;
+	padding: 30px;
+	border-radius: 52px;
+	// min-width: 400px;
+	width: 100%;
+	max-height: 400px;
+	&__title{
+		color: $carrot;
+	}
+}
 
