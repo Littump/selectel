@@ -37,3 +37,18 @@
 	left: 60px;
 	top: 30px;
 }
+.card_wrapper {
+	margin-top: 44px;
+	display: grid;
+    grid-template-columns: repeat(3, 32%);
+    grid-gap: 20px;
+	justify-content: center;
+}
+.filters{
+	display: flex;
+	gap: 28px;
+	margin-top: 45px;
+	&__btn{
+		padding: 9px 44px;
+	}
+}

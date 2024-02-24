@@ -125,6 +125,7 @@ export const fetchAllAdvertisements = createAsyncThunk(
 			)
 			if (response.ok) {
 			  const data = await response.json()
+			  console.log(data)
 			  return data.results
 			} else {
 			  return response.status
@@ -188,7 +189,7 @@ const RegistrationSlice = createSlice({
 		})
 		.addCase(fetchPets.fulfilled, (state, action) => {
 			// state.loginStatus = 'success'
-			state.allPets = action.payload.results
+			state.allPets = action.payload
 		})
 		.addCase(fetchPets.rejected, (state) => {
 		})
@@ -199,7 +200,7 @@ const RegistrationSlice = createSlice({
 		})
 		.addCase(fetchMyPets.fulfilled, (state, action) => {
 			// state.loginStatus = 'success'
-			state.myPets = action.payload.results
+			state.myPets = action.payload
 		})
 		.addCase(fetchMyPets.rejected, (state) => {
 		})
@@ -210,7 +211,7 @@ const RegistrationSlice = createSlice({
 		})
 		.addCase(fetchAllAdvertisements.fulfilled, (state, action) => {
 			// state.loginStatus = 'success'
-			state.	allAdvs = action.payload.results
+			state.	allAdvs = action.payload
 		})
 		.addCase(fetchAllAdvertisements.rejected, (state) => {
 		})
