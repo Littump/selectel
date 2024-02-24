@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.response import Response
 
 from pets import models, serializers, filters
 
@@ -13,7 +14,7 @@ class PetViewSet(viewsets.ModelViewSet):
     def me(self, request):
         queryset = self.get_queryset().filter(owner=request.user)
         serializer = self.get_serializer(queryset, many=True)
-        return serializer.data
+        return Response(serializer.data)
 
 
 class AdvertisementViewSet(viewsets.ModelViewSet):
@@ -26,7 +27,7 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
     def me(self, request):
         queryset = self.get_queryset().filter(author=request.user)
         serializer = self.get_serializer(queryset, many=True)
-        return serializer.data
+        return Response(serializer.data)
 
 
 class RequestViewSet(viewsets.ModelViewSet):
@@ -37,4 +38,4 @@ class RequestViewSet(viewsets.ModelViewSet):
     def me(self, request):
         queryset = self.get_queryset().filter(author=request.user)
         serializer = self.get_serializer(queryset, many=True)
-        return serializer.data
+        return Response(serializer.data)
