@@ -1,0 +1,50 @@
+@import "../../shared/styles/colors.scss";
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+    min-width: 600px;
+}
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+.bloodType {
+    color: $red;
+    margin-right: 2rem;
+}
+.address {
+    gap: 0.7rem;
+    display: flex;
+    align-items: center;
+}
+.mark {
+    width: 1rem;
+}
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.petInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.name,
+.breed {
+    color: $red;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
