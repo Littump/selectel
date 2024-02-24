@@ -14,9 +14,6 @@ const RegistrationPage = lazy(
 const HomePage = lazy(() => import("./HomePage/HomePage"));
 const ProfilePage = lazy(() => import("./ProfilePage/ProfilePage"));
 
-// interface IProps {
-// 	isLoginPage: boolean
-// }
 const PrivateRoute = () => {
     const auth = !!localStorage.getItem("token");
     return auth ? <Navigate to={routes.homePage} /> : <Outlet />;
@@ -66,12 +63,14 @@ export const Routing = memo(() => {
             >
                 <Route index element={<ProfilePage />} />
             </Route>
-            <Route element={<Layout type={"registration"} />}>
-                <Route path={routes.loginPage} element={<LoginPage />} />
-                <Route
-                    path={routes.registrationPage}
-                    element={<RegistrationPage />}
-                />
+            <Route element={<PrivateRoute/>}>
+                <Route element={<Layout type={"registration"} />}>
+                    <Route path={routes.loginPage} element={<LoginPage />} />
+                    <Route
+                        path={routes.registrationPage}
+                        element={<RegistrationPage />}
+                    />
+                </Route>
             </Route>
         </Routes>
     );

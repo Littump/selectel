@@ -1,22 +1,12 @@
 import { memo } from "react";
 import styles from "./EditUser.module.scss";
 import { Title } from "shared";
-import user from "../../assets/images/user.png";
 import EditUserInputs from "widgets/EditUserInputs/EditUserInputs";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-interface User {
-    url?: string;
-    firstName?: string;
-    lastName?: string;
-    address?: string;
-    birthday?: string;
-    phone?: string;
-}
-
 const EditUser = memo(() => {
-    const userInfo = useSelector((state) => state.user?.userInfo);
+    const userInfo = useSelector((state : any) => state.user?.userInfo);
     
     return (
         <div className={styles.wrapper}>

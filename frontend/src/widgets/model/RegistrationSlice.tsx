@@ -179,41 +179,41 @@ const RegistrationSlice = createSlice({
 				state.registerStatus = 'error'
 			}
 		})
-		.addCase(fetchRegister.rejected, (state) => {
+		.addCase(fetchRegister.rejected, (state : any) => {
 			state.registerStatus = 'error'
 		})
 
 		// fetchPets
-		.addCase(fetchPets.pending, (state) => {
+		.addCase(fetchPets.pending, () => {
 			// state.loginStatus = 'loading'
 		})
-		.addCase(fetchPets.fulfilled, (state, action) => {
+		.addCase(fetchPets.fulfilled, (state : any, action : any) => {
 			// state.loginStatus = 'success'
 			state.allPets = action.payload
 		})
-		.addCase(fetchPets.rejected, (state) => {
+		.addCase(fetchPets.rejected, () => {
 		})
 
 		// fetchMyPets
-		.addCase(fetchMyPets.pending, (state) => {
+		.addCase(fetchMyPets.pending, () => {
 			// state.loginStatus = 'loading'
 		})
-		.addCase(fetchMyPets.fulfilled, (state, action) => {
+		.addCase(fetchMyPets.fulfilled, (state : any, action : any) => {
 			// state.loginStatus = 'success'
 			state.myPets = action.payload
 		})
-		.addCase(fetchMyPets.rejected, (state) => {
+		.addCase(fetchMyPets.rejected, () => {
 		})
 
 		// fetchAllAdvertisements
-		.addCase(fetchAllAdvertisements.pending, (state) => {
+		.addCase(fetchAllAdvertisements.pending, () => {
 			// state.loginStatus = 'loading'
 		})
 		.addCase(fetchAllAdvertisements.fulfilled, (state, action) => {
 			// state.loginStatus = 'success'
 			state.	allAdvs = action.payload
 		})
-		.addCase(fetchAllAdvertisements.rejected, (state) => {
+		.addCase(fetchAllAdvertisements.rejected, () => {
 		})
 	}
 })

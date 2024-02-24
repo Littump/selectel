@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import styles from "./FindDonor.module.scss";
 import pet from "../../assets/images/pet.png";
 import { Title } from "shared";
@@ -10,10 +10,10 @@ import { useSelector } from "react-redux";
 
 const FindDonor = memo(() => {
     const { petId } = useParams();
-    const [addAd, result] = useAddAdMutation();
-    const userInfo = useSelector((state) => state.user?.userInfo);
-    const petInfo = useSelector((state) => state.user?.pets).filter(
-        (el) => el.id === petId
+    const [addAd] = useAddAdMutation();
+    const userInfo = useSelector((state:any) => state.user?.userInfo);
+    const petInfo = useSelector((state:any) => state.user?.pets).filter(
+        (el : any) => el.id === petId
     )[0];
     console.log(petInfo);
     return (

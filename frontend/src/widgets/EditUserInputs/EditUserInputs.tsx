@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import InputPrimary from "shared/ui/InputPrimary/InputPrimary";
 import { Formik } from "formik";
 import { Form } from "formik";
-import parse from "date-fns/parse";
+import { parse } from "date-fns/parse";
 import { useUpdateMeMutation } from "service/Service";
 
 const phoneRegExp =
@@ -100,6 +100,7 @@ const EditUserInputs = memo((props: Props) => {
     ];
 
     const [updateMe, result] = useUpdateMeMutation();
+    result.data
     return (
         <Formik
             initialValues={{

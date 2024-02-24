@@ -1,11 +1,9 @@
 import { Btn, Title, routes } from 'shared'
 import styles from './HomePageBar.module.scss'
-import {  useSelector} from 'react-redux'
 import { useEffect } from 'react'
 import white_figure from '../../assets/icons/white_figure.svg'
 import dogs from '../../assets/icons/dogs.svg'
-import { PetCard } from 'widgets'
-import { RootState, useAppDispatch } from 'app/store'
+import { useAppDispatch } from 'app/store'
 import { fetchAllAdvertisements } from 'widgets/model/RegistrationSlice'
 
 const HomePageBar = () => {

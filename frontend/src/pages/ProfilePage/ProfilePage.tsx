@@ -8,7 +8,7 @@ const ProfilePage = memo(() => {
     const petsData = useGetPetsQuery({
         pollingInterval: 2500,
     });
-    const adsData = useGetAdsQuery({
+    const adsData : any = useGetAdsQuery({
         pollingInterval: 2500,
     });
     const dispatch = useDispatch();

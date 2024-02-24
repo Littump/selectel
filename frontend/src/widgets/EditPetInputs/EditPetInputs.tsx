@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import InputPrimary from "shared/ui/InputPrimary/InputPrimary";
 import { Formik } from "formik";
 import { Form } from "formik";
-import parse from "date-fns/parse";
+import {parse} from "date-fns/parse";
 import { useAddPetMutation } from "service/Service";
 
 const validationSchema = Yup.object().shape({
@@ -157,6 +157,7 @@ const EditPetInputs = memo((props: Props) => {
                   vaccinations: "",
               };
     const [addPet, result] = useAddPetMutation();
+    result.data
     return (
         <Formik
             initialValues={initialValues}

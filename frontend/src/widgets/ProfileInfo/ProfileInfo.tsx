@@ -3,35 +3,12 @@ import styles from "./ProfileInfo.module.scss";
 import ProfileInfoUser from "widgets/ProfileInfoUser/ProfileInfoUser";
 import ProfileInfoPet from "widgets/ProfileInfoPet/ProfileInfoPet";
 import { Btn, Title } from "shared";
-import user from "../../assets/images/user.png";
-import pet from "../../assets/images/pet.png";
 import ProfileRequest from "widgets/ProfileRequest/ProfileRequest";
 import { useSelector } from "react-redux";
-
-interface PetFact {
-    title: string;
-    data: string;
-}
-
-interface Pet {
-    url?: string;
-    name?: string;
-    breed?: string;
-    petFacts?: PetFact[];
-}
-
-interface Request {
-    name?: string;
-    address?: string;
-    petFacts?: PetFact[];
-    bloodType?: string;
-    id?: string;
-}
-
 const ProfileInfo = memo(() => {
-    let userInfo = useSelector((state) => state?.user?.userInfo);
-    let pets = useSelector((state) => state?.user?.pets);
-    let requests = useSelector((state) => state?.user?.ads);
+    let userInfo = useSelector((state : any) => state?.user?.userInfo);
+    let pets = useSelector((state : any) => state?.user?.pets);
+    let requests = useSelector((state : any) => state?.user?.ads);
     console.log(pets);
     return (
         <div className={styles.wrapper}>
@@ -60,7 +37,7 @@ const ProfileInfo = memo(() => {
                 )}
             </div>
             <div className={styles.otherPets}>
-                {pets.slice(1).map((pet) => (
+                {pets.slice(1).map((pet : any) => (
                     <ProfileInfoPet
                         url={pet?.url}
                         name={pet?.name}
@@ -80,7 +57,7 @@ const ProfileInfo = memo(() => {
             ) : null}
             <Title>Мои заявки</Title>
             <div className={styles.requestsGrid}>
-                {requests.map((request) => (
+                {requests.map((request :  any) => (
                     <ProfileRequest
                         name={request.name}
                         bloodType={request.bloodType}
