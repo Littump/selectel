@@ -69,7 +69,7 @@ export const managerAPI = createApi({
             }),
         }),
         addPet: build.mutation({
-            query: ({ name, birthday, city, bloodType }) => ({
+            query: ({ name, birthday, city, breed, bloodType }) => ({
                 url: `api/pets/`,
                 method: "POST",
                 headers: {
@@ -79,6 +79,7 @@ export const managerAPI = createApi({
                     name,
                     birthday,
                     city,
+                    breed,
                     type: bloodType,
                 },
             }),
@@ -114,14 +115,17 @@ export const managerAPI = createApi({
             }),
         }),
         addAd: build.mutation({
-            query: ({ info }) => ({
+            query: ({ reason, address, city, need_blood_types }) => ({
                 url: `api/advertisements/`,
                 method: "POST",
                 headers: {
                     Authorization: `Token ${localStorage.getItem("token")}`,
                 },
                 body: {
-                    info,
+                    reason,
+                    address: address == "" ? "Москва" : address,
+                    city: city == "" ? "Москва" : city,
+                    need_blood_types,
                 },
             }),
         }),

@@ -33,6 +33,7 @@ const Header = memo((props: IProps) => {
                 username: res?.username,
                 phone: res?.number,
                 address: res?.city,
+                city: res?.city,
             })
         );
     }, [meData?.data, dispatch]);

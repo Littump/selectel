@@ -2,7 +2,7 @@ import { memo, useEffect } from "react";
 import { ProfileInfo } from "widgets";
 import { useGetAdsQuery, useGetPetsQuery } from "service/Service";
 import { useDispatch } from "react-redux";
-import { setPets } from "app/reducers/userReducer";
+import { setAds, setPets } from "app/reducers/userReducer";
 
 const ProfilePage = memo(() => {
     const petsData = useGetPetsQuery({
@@ -14,13 +14,10 @@ const ProfilePage = memo(() => {
     const dispatch = useDispatch();
     useEffect(() => {
         //settaeм питомцев
-        dispatch(setPets([{
-
-        }]));
+        dispatch(setPets(petsData.data));
         // dispatch(setPets(petsData.data));
-        // //сеттаем обьявления
-        // dispatch(setAds(adsData.data));
-    }, [petsData.data, adsData.data, dispatch]);
+        dispatch(setAds(adsData?.results));
+    }, [petsData.data, adsData.results, dispatch]);
     return (
         <div>
             <ProfileInfo />

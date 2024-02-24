@@ -6,6 +6,7 @@ import EditUserPage from "./EditUserPage/EditUserPage";
 import EditPetPage from "./EditPetPage/EditPetPage";
 import AddPetPage from "./AddPetPage/AddPetPage";
 import FindDonor from "widgets/FindDonor/FindDonor";
+import Footer from "widgets/Footer/Footer";
 const LoginPage = lazy(() => import("./LoginPage/LoginPage"));
 const RegistrationPage = lazy(
     () => import("./RegistrationPage/RegistrationPage")
@@ -29,6 +30,7 @@ const Layout = (props: ILayoutProps) => {
         <>
             <Header type={type} />
             <Outlet />
+            <Footer />
         </>
     );
 };

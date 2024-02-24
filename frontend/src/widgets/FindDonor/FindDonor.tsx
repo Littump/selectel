@@ -1,20 +1,33 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import styles from "./FindDonor.module.scss";
 import pet from "../../assets/images/pet.png";
 import { Title } from "shared";
 import InputPrimary from "shared/ui/InputPrimary/InputPrimary";
 import { Form, Formik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useAddAdMutation } from "service/Service";
+import { useSelector } from "react-redux";
 
 const FindDonor = memo(() => {
+    const { petId } = useParams();
+    const [addAd, result] = useAddAdMutation();
+    const userInfo = useSelector((state) => state.user?.userInfo);
+    const petInfo = useSelector((state) => state.user?.pets).filter(
+        (el) => el.id === petId
+    )[0];
+    console.log(petInfo);
     return (
         <Formik
             initialValues={{
                 reason: "",
             }}
             onSubmit={(values) => {
-                // здесь разные запросы в зависимости от type
-                alert(JSON.stringify(values, null, 2));
+                addAd({
+                    reason: values.reason,
+                    address: userInfo.address,
+                    city: userInfo?.city,
+                    need_blood_types: petInfo.bloodType,
+                });
             }}
         >
             {({ touched, errors }) => (

@@ -4,7 +4,7 @@ export const routes = {
     registrationPage: "/registration",
     profile: "/profile",
     editUser: "/profile/user/edit",
-    editPet: "/pet/:id/edit",
+    editPet: "/pet/:petId/edit",
     addPet: "/profile/addPet",
     findDonor: "/pet/:id/findDonor",
     request: "/pet/request",

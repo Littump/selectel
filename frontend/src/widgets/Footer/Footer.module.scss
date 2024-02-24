@@ -1,0 +1,15 @@
+@import "../../shared/styles/colors.scss";
+.footer {
+    height: 5rem;
+    background: $red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2;
+    margin-top: 5rem;
+}
+.footer a {
+    color: white;
+}

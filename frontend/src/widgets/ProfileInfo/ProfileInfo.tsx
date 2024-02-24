@@ -32,7 +32,7 @@ const ProfileInfo = memo(() => {
     let userInfo = useSelector((state) => state?.user?.userInfo);
     let pets = useSelector((state) => state?.user?.pets);
     let requests = useSelector((state) => state?.user?.ads);
-    
+    console.log(pets);
     return (
         <div className={styles.wrapper}>
             <Title>Профиль</Title>
