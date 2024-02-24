@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import user from "../../assets/images/user.png";
 import pet from "../../assets/images/pet.png";
 
-const initialState = {
+const initialState : any = {
     userInfo: {
         firstName: null,
         lastName: null,
@@ -82,7 +82,7 @@ export const userInfo = createSlice({
     name: "filters",
     initialState,
     reducers: {
-        updateUserInfo: (state, action) => {
+        updateUserInfo: (state : any, action) => {
             state.userInfo.firstName = action.payload.firstName;
             state.userInfo.lastName = action.payload.lastName;
             state.userInfo.username = action.payload.username;
@@ -91,14 +91,14 @@ export const userInfo = createSlice({
             state.userInfo.phone = action.payload.phone;
             state.userInfo.city = action.payload.city;
         },
-        setPets: (state, action) => {
+        setPets: (state: any, action) => {
             if (!action.payload) return;
             console.log(action.payload);
-            state.pets = [...action.payload.map((el) => ({ ...el, url: pet }))];
+            state.pets = [...action.payload.map((el : any) => ({ ...el, url: pet }))];
         },
-        setAds: (state, action) => {
+        setAds: (state : any, action) => {
             if (!action.payload) return;
-            state.ads = [...action.payload.map((el) => ({ ...el }))];
+            state.ads = [...action.payload.map((el : any) => ({ ...el }))];
         },
     },
 });

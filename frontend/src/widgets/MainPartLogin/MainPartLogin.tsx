@@ -1,20 +1,17 @@
 import styles from "./MainPartLogin.module.scss";
-import { Title, Text, routes } from "shared";
+import { Title, Text } from "shared";
 import vk from "../../assets/icons/vk.svg";
 import odnokl from "../../assets/icons/odnokl.svg";
 import yandex from "../../assets/icons/yandex.svg";
 import { FormProvider, useForm } from "react-hook-form";
 import { memo, useEffect } from "react";
 import { TextInput } from "shared";
-import { useAppDispatch } from "app/store";
-import { fetchLogin } from "widgets/model/RegistrationSlice";
 import { useNavigate } from "react-router-dom";
 import { useSigninMutation } from "service/Service";
 
 const MainPartLogin = memo(() => {
     const methods = useForm({ mode: "all" });
     const { handleSubmit } = methods;
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const [signin, result] = useSigninMutation();
     const onSubmit = (data: any) => {

@@ -70,7 +70,7 @@ export const managerAPI = createApi({
         }),
         addPet: build.mutation({
             query: ({ name, birthday, city, breed, bloodType }) => ({
-                url: `api/pets/`,
+                url: `/api/pets/`,
                 method: "POST",
                 headers: {
                     Authorization: `Token ${localStorage.getItem("token")}`,

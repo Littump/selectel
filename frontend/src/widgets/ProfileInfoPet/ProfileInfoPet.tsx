@@ -25,12 +25,13 @@ const ProfileInfoPet = memo((props: Props) => {
 
     return (
         <Block className={styles.wrapper}>
-            <img src={url} alt="" />
+           <>
+           <img src={url} alt="" />
             <div className={styles.petInfo}>
                 <h2 className={styles.name}>{name}</h2>
                 <h5 className={styles.breed}>{breed}</h5>
                 <ul className={styles.list}>
-                    {petFacts.map((fact) => (
+                    {petFacts.map((fact : any) => (
                         <li key={fact?.title}>
                             <span className={styles.bold}>{fact?.title}</span>:
                             {fact?.data}
@@ -47,6 +48,7 @@ const ProfileInfoPet = memo((props: Props) => {
                     </Btn>
                 </div>
             </div>
+           </>
         </Block>
     );
 });

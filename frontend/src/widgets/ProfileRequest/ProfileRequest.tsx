@@ -21,26 +21,28 @@ const ProfileRequest = memo((props: Props) => {
 
     return (
         <Block className={styles.wrapper}>
+           <>
             <div className={styles.header}>
-                <h2 className={styles.name}>{name}</h2>
-                <h2 className={styles.bloodType}>{bloodType}</h2>
+                    <h2 className={styles.name}>{name}</h2>
+                    <h2 className={styles.bloodType}>{bloodType}</h2>
             </div>
-            <ul className={styles.list}>
-                {petFacts.map((fact) => (
-                    <li key={fact?.title}>
-                        <span className={styles.bold}>{fact?.title}</span>:
-                        {fact?.data}
-                    </li>
-                ))}
-            </ul>
-            <div className={styles.address}>
-                <img src={mark} alt="" className={styles.mark} />
-                {address}
-            </div>
+                <ul className={styles.list}>
+                    {petFacts.map((fact) => (
+                        <li key={fact?.title}>
+                            <span className={styles.bold}>{fact?.title}</span>:
+                            {fact?.data}
+                        </li>
+                    ))}
+                </ul>
+                <div className={styles.address}>
+                    <img src={mark} alt="" className={styles.mark} />
+                    {address}
+                </div>
             {/* переход на главную */}
             <Btn type="text" to="/">
                 {"Смотреть подробнее -->"}
             </Btn>
+           </>
         </Block>
     );
 });

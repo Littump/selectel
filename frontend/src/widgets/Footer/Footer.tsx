@@ -1,7 +1,5 @@
 import { memo } from "react";
 import styles from "./Footer.module.scss";
-import logo from "assets/icons/logo.svg";
-
 const Footer = memo(() => {
     return (
         <div className={styles.footer}>

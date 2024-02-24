@@ -1,19 +1,16 @@
-import { Title, Text, TextInput, routes } from "shared";
+import { Title, Text, TextInput } from "shared";
 import styles from "./RegistrationWidget.module.scss";
 import { FormProvider, useForm } from "react-hook-form";
-import { useAppDispatch } from "app/store";
 import vk from "../../assets/icons/vk.svg";
 import odnokl from "../../assets/icons/odnokl.svg";
 import yandex from "../../assets/icons/yandex.svg";
-import { fetchRegister } from "widgets/model/RegistrationSlice";
 import { useNavigate } from "react-router-dom";
-import { useSigninMutation, useSignupMutation } from "service/Service";
+import { useSignupMutation } from "service/Service";
 import { useEffect } from "react";
 const RegistrationWidget = () => {
     const methods = useForm({ mode: "all" });
-    const { handleSubmit, setError } = methods;
+    const { handleSubmit } = methods;
     const navigate = useNavigate();
-    const dispatch = useAppDispatch();
     const [signup, result] = useSignupMutation();
     const onSubmit = (data: any) => {
         // if (data.password1 !== data.password2) {

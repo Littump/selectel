@@ -13,12 +13,14 @@ const ProfileInfoUser = memo((props: Props) => {
     const { url = "", name = "", address = "" } = props;
     return (
         <Block className={styles.wrapper}>
-            <img src={url} alt="пользователь" />
+           <>
+           <img src={url} alt="пользователь" />
             <h3 className={styles.name}>{name}</h3>
             <h3 className={styles.address}>{address}</h3>
             <Btn to="user/edit" type="outlined" width="320px">
                 Редактировать профиль
             </Btn>
+           </>
         </Block>
     );
 });
