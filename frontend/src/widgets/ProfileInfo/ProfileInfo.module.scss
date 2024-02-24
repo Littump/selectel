@@ -1,0 +1,33 @@
+.wrapper {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.profileGrid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 2rem;
+}
+.requestsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.otherPets {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.addPet {
+    width: 400px;
+    margin: 0 auto;
+}
+.addPetSolo {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}

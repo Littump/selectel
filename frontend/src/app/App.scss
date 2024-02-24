@@ -1,0 +1,13 @@
+@import '../assets/fonts/stylesheet.css';
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+	font-family: 'Nunito';
+	border: 0;
+	border-radius: 0;
+  }
+  #root {
+	position: relative;
+  }

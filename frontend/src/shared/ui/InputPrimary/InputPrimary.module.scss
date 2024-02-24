@@ -1,0 +1,22 @@
+@import "../../styles/colors.scss";
+.input {
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    border: 1px solid $red;
+    width: 20rem;
+    &:focus {
+        border: 1px solid $red;
+        outline: none;
+    }
+}
+.wrapper {
+    position: relative;
+}
+
+.errorText {
+    position: absolute;
+    color: $red;
+    left: 0.5rem;
+    bottom: -1.4rem;
+}
