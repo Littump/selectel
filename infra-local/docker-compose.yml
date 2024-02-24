@@ -6,6 +6,14 @@ volumes:
   pg_data:
 
 services:
+  db:
+    image: postgres:13.3-alpine
+    restart: always
+    env_file: ../backend/.env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   backend:
     build: ../backend/
     volumes:
@@ -13,12 +21,12 @@ services:
       - static_value:/app/static/
       - media_value:/app/media/
     env_file: ../backend/.env
-  # frontend:
-  #   build: ../frontend/
-  #   volumes:
-  #     - ../frontend/:/app/result_build/
-  #   depends_on:
-  #     - backend
+  frontend:
+    build: ../frontend/
+    volumes:
+      - ../frontend/:/app/result_build/
+    depends_on:
+      - backend
   nginx:
     image: nginx:1.19.3
     ports:
@@ -27,6 +35,6 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/www/backend/static/
       - media_value:/var/www/backend/media/
-    #   - ../frontend/dist:/usr/share/nginx/html/
-    # depends_on:
-    #   - frontend
+      - ../frontend/dist:/usr/share/nginx/html/
+    depends_on:
+      - frontend
