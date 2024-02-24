@@ -1,0 +1,30 @@
+@import "../../shared/styles/colors.scss";
+.img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1000%;
+}
+.wrapper {
+    padding: 2rem 4rem;
+}
+
+.donorBlock {
+    margin-top: 2rem;
+}
+.block {
+    display: flex;
+    gap: 2rem;
+}
+.submit {
+    font-size: 1rem;
+    width: 16rem;
+    padding: 0.4rem 2rem;
+    border-radius: 1.5rem;
+    background-color: $red;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.2);
+    }
+}

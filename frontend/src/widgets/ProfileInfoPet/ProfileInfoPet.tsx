@@ -12,11 +12,16 @@ interface Props {
     breed?: string;
     url?: string;
     name?: string;
+    id?: string;
     petFacts?: PetFact[];
 }
 
 const ProfileInfoPet = memo((props: Props) => {
-    const { url = "", name = "", breed = "", petFacts = [] } = props;
+    const { url = "", name = "", breed = "", id = "0" } = props;
+    const petFacts = [
+        { title: "Возраст", value: 10 },
+        { title: "Вес", value: 14 },
+    ];
 
     return (
         <Block className={styles.wrapper}>
@@ -33,11 +38,11 @@ const ProfileInfoPet = memo((props: Props) => {
                     ))}
                 </ul>
                 <div className={styles.buttons}>
-                    <Btn to="pet/edit" type="outlined" width="240px">
+                    <Btn to={`/pet/${id}/edit`} type="outlined" width="240px">
                         Редактировать
                     </Btn>
                     {/* здесь переход на поиск донора, реализованного ваней */}
-                    <Btn to="/" type="tonal" width="260px">
+                    <Btn to={`/pet/${id}/findDonor`} type="tonal" width="260px">
                         Найти донора
                     </Btn>
                 </div>

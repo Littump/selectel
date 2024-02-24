@@ -6,6 +6,7 @@ import { Btn, Title } from "shared";
 import user from "../../assets/images/user.png";
 import pet from "../../assets/images/pet.png";
 import ProfileRequest from "widgets/ProfileRequest/ProfileRequest";
+import { useSelector } from "react-redux";
 
 interface PetFact {
     title: string;
@@ -24,85 +25,14 @@ interface Request {
     address?: string;
     petFacts?: PetFact[];
     bloodType?: string;
-}
-interface User {
-    url?: string;
-    firstName?: string;
-    lastName?: string;
-    address?: string;
-    birthday?: string;
-    phone?: string;
+    id?: string;
 }
 
 const ProfileInfo = memo(() => {
-    const userInfo: User = {
-        url: user,
-        firstName: "Иван",
-        lastName: "Иванович",
-        address: "Улица Степана Разина дом 2 кв 12",
-        birthday: "05.12.2004",
-        phone: "8(960)256-55-55",
-    };
-    const pets: Pet[] = [
-        {
-            url: pet,
-            name: "Шарик",
-            breed: "Сиба ину",
-            petFacts: [
-                { title: "Возраст", data: "26" },
-                { title: "Вес", data: "26кг" },
-            ],
-        },
-        {
-            url: pet,
-            name: "Шарик2",
-            breed: "Сиба ину",
-            petFacts: [
-                { title: "Возраст", data: "26" },
-                { title: "Вес", data: "26кг" },
-            ],
-        },
-        {
-            url: pet,
-            name: "Шарик3",
-            breed: "Сиба ину",
-            petFacts: [
-                { title: "Возраст", data: "26" },
-                { title: "Вес", data: "26кг" },
-            ],
-        },
-    ];
-
-    const requests: Request[] = [
-        {
-            name: "Шарик",
-            bloodType: "DEA 1.1",
-            address: "Санкт-Петербург улица пушкина дом колотушкина",
-            petFacts: [
-                { title: "Возраст", data: "26" },
-                { title: "Вес", data: "26кг" },
-            ],
-        },
-        {
-            name: "Шарик2",
-            bloodType: "DEA 1.1",
-            address: "Санкт-Петербург улица пушкина дом колотушкина",
-            petFacts: [
-                { title: "Возраст", data: "26" },
-                { title: "Вес", data: "26кг" },
-            ],
-        },
-        {
-            name: "Шарик3",
-            bloodType: "DEA 1.1",
-            address: "Санкт-Петербург улица пушкина дом колотушкина",
-            petFacts: [
-                { title: "Возраст", data: "26" },
-                { title: "Вес", data: "26кг" },
-            ],
-        },
-    ];
-
+    let userInfo = useSelector((state) => state?.user?.userInfo);
+    let pets = useSelector((state) => state?.user?.pets);
+    let requests = useSelector((state) => state?.user?.ads);
+    console.log(pets);
     return (
         <div className={styles.wrapper}>
             <Title>Профиль</Title>
@@ -119,6 +49,7 @@ const ProfileInfo = memo(() => {
                         breed={pets[0]?.breed}
                         petFacts={pets[0]?.petFacts}
                         key={pets[0]?.name}
+                        id={pets[0]?.id}
                     />
                 ) : (
                     <div className={styles.addPetSolo}>
@@ -136,6 +67,7 @@ const ProfileInfo = memo(() => {
                         breed={pet?.breed}
                         petFacts={pet?.petFacts}
                         key={pet?.name}
+                        id={pet?.id}
                     />
                 ))}
             </div>

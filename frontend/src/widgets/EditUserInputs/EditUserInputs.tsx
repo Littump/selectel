@@ -5,6 +5,7 @@ import InputPrimary from "shared/ui/InputPrimary/InputPrimary";
 import { Formik } from "formik";
 import { Form } from "formik";
 import parse from "date-fns/parse";
+import { useUpdateMeMutation } from "service/Service";
 
 const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -47,6 +48,7 @@ interface User {
     birthday?: string;
     phone?: string;
     password?: string;
+    username?: string;
 }
 interface Input {
     title?: string;
@@ -62,8 +64,14 @@ interface Props {
 
 const EditUserInputs = memo((props: Props) => {
     const { userInfo } = props;
+    console.log(userInfo);
 
     const inputs: Input[] = [
+        {
+            title: "Логин",
+            name: "username",
+            placeholder: "ivan123",
+        },
         {
             title: "Имя",
             name: "firstName",
@@ -91,19 +99,25 @@ const EditUserInputs = memo((props: Props) => {
         },
     ];
 
+    const [updateMe, result] = useUpdateMeMutation();
     return (
         <Formik
             initialValues={{
-                firstName: userInfo?.firstName,
-                lastName: userInfo?.lastName,
-                birthday: userInfo?.birthday,
-                address: userInfo?.address,
-                password: userInfo?.password,
-                phone: userInfo?.phone,
+                firstName:
+                    userInfo?.firstName == null ? "" : userInfo?.firstName,
+                username: userInfo?.username == null ? "" : userInfo?.username,
+                lastName: userInfo?.lastName == null ? "" : userInfo?.lastName,
+                birthday:
+                    userInfo?.birthday == null
+                        ? "01.01.2000"
+                        : userInfo?.birthday,
+                address: userInfo?.address == null ? "" : userInfo?.address,
+                password: userInfo?.password == null ? "" : userInfo?.password,
+                phone: userInfo?.phone == null ? "" : userInfo?.phone,
             }}
             validationSchema={validationSchema}
             onSubmit={(values) => {
-                alert(JSON.stringify(values, null, 2));
+                updateMe({ ...values });
             }}
         >
             {({ touched, errors }) => (

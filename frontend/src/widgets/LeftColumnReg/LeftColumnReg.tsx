@@ -1,4 +1,4 @@
-import { Title, Text, Btn } from 'shared'
+import { Title, Text, Btn, routes } from 'shared'
 import styles from './LeftColumnReg.module.scss'
 
 const LeftColumnReg = () => {
@@ -10,7 +10,7 @@ const LeftColumnReg = () => {
 			<br/> <br />
 			Эта процедура спасает многих кошек и собак, продлевает их жизнь на радость хозяев. 
 			</Text>
-			<Btn type="tonal" width='239px'>Регистрация</Btn>
+			<Btn type="tonal" width='239px' to={routes.registrationPage}>Регистрация</Btn>
 		</div>
 	)
 }

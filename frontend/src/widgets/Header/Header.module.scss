@@ -2,9 +2,9 @@
 .header {
     padding: 19px 19px 16px 19px;
     display: flex;
-    background-color: $grey;
     align-items: center;
     justify-content: space-between;
+    background-color: $grey;
     &__link {
         text-decoration: none;
         color: black;
@@ -26,4 +26,9 @@
         justify-content: space-between;
         gap: 20px;
     }
+}
+
+.profile {
+    color: black;
+    margin-right: 3rem;
 }

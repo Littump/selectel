@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styles from "./Btn.module.scss";
+import { Link } from 'react-router-dom'
+import styles from './Btn.module.scss'
 interface Props {
     type?: "tonal" | "outlined" | "text";
     children?: JSX.Element | string;

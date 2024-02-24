@@ -4,6 +4,7 @@ import { Title } from "shared";
 import user from "../../assets/images/user.png";
 import EditUserInputs from "widgets/EditUserInputs/EditUserInputs";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 interface User {
     url?: string;
@@ -15,15 +16,8 @@ interface User {
 }
 
 const EditUser = memo(() => {
-    const userInfo: User = {
-        url: user,
-        firstName: "Иван",
-        lastName: "Иванович",
-        address: "Улица Степана Разина дом 2 кв 12",
-        birthday: "05.12.2004",
-        phone: "8(960)256-55-55",
-    };
-
+    const userInfo = useSelector((state) => state.user?.userInfo);
+    
     return (
         <div className={styles.wrapper}>
             <div>
