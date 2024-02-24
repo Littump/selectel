@@ -19,7 +19,7 @@ class AdvertisementFilter(FilterSet):
     )
 
     class Meta:
-        model = models.Pet
+        model = models.Advertisement
         fields = ['type', 'need_blood_types', 'city']
 
     def is_have_blood_type(self, queryset, name, value):
