@@ -15,7 +15,7 @@ services:
     ports:
       - "5432:5432"
   backend:
-    image: littump/backend_layoff:latest
+    image: littump/backend_selectel:latest
     restart: always
     volumes:
       - static_value:/app/static/
@@ -25,7 +25,7 @@ services:
       - db
   frontend:
     restart: no
-    image: littump/frontend_layoff:latest
+    image: littump/frontend_selectel:latest
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:
