@@ -1,0 +1,29 @@
+@import '../../shared/styles/colors.scss';
+.header{
+	padding: 19px 19px 16px 19px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $grey;
+	&__link{
+		text-decoration: none;
+		color: black;
+		cursor: pointer;
+		margin-left: 36px;
+	}
+	&__where{
+		text-decoration: none;
+		color: black;
+		cursor: pointer;
+		margin-left: 56px;
+	}
+	&__links{
+		display: flex;
+		align-items: center;
+	}
+	&__btns{
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+	}
+}
