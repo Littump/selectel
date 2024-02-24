@@ -1,2 +1,9 @@
-
+@import '../../shared/styles/colors.scss';
+.card {
+	background-color: $grey;
+	padding: 20px;
+	&__title{
+		color: $carrot;
+	}
+}
 

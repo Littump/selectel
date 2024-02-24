@@ -22,4 +22,8 @@ export {
 	HomePageBar,
 	RegistrationSlice,
 	PetCard,
+	AddPet,
+	ProfileInfo,
+	EditUser,
+	EditPet
 }
