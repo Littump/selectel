@@ -5,6 +5,7 @@ import InputPrimary from "shared/ui/InputPrimary/InputPrimary";
 import { Formik } from "formik";
 import { Form } from "formik";
 import parse from "date-fns/parse";
+import { useAddPetMutation } from "service/Service";
 
 const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -28,11 +29,11 @@ const validationSchema = Yup.object().shape({
         .max(150, "Слишком длинный!")
         .required("Введите породу"),
     address: Yup.string()
-        .min(10, "Слишком короткий!")
+        .min(3, "Слишком короткий!")
         .max(150, "Слишком длинный!")
         .required("Введите адрес"),
     city: Yup.string()
-        .min(10, "Слишком короткий!")
+        .min(3, "Слишком короткий!")
         .max(150, "Слишком длинный!")
         .required("Введите город"),
     birthday: Yup.date()
@@ -155,15 +156,13 @@ const EditPetInputs = memo((props: Props) => {
                   ills: "",
                   vaccinations: "",
               };
+    const [addPet, result] = useAddPetMutation();
     return (
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values) => {
-                if (type != "edit") {
-                    alert(JSON.stringify(values, null, 2));
-                } else alert(JSON.stringify(values, null, 2));
-                // здесь разные запросы в зависимости от type
+                addPet(values);
             }}
         >
             {({ touched, errors }) => (
@@ -186,7 +185,7 @@ const EditPetInputs = memo((props: Props) => {
                         ))}
                     </div>
                     <button type="submit" className={styles.submit}>
-                        Сохранить
+                        {type == "edit" ? "Сохранить" : "Добавить"}
                     </button>
                 </Form>
             )}

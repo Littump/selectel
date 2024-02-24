@@ -37,21 +37,39 @@ export const managerAPI = createApi({
             }),
         }),
         updateMe: build.mutation({
-            query: ({ username, email, name }) => ({
-                url: `api/users/me`,
+            query: ({
+                firstName,
+                lastName,
+                username,
+                birthday,
+                address,
+                phone,
+            }) => ({
+                url: `api/users/me/`,
                 method: "PATCH",
                 headers: {
                     Authorization: `Token ${localStorage.getItem("token")}`,
                 },
                 body: {
+                    first_name: firstName,
+                    last_name: lastName,
                     username,
-                    email,
-                    name,
+                    birthday,
+                    city: address,
+                    number: phone,
+                },
+            }),
+        }),
+        getPets: build.query({
+            query: () => ({
+                url: `api/pets/me/`,
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("token")}`,
                 },
             }),
         }),
         addPet: build.mutation({
-            query: ({ name, breed }) => ({
+            query: ({ name, birthday, city, bloodType }) => ({
                 url: `api/pets/`,
                 method: "POST",
                 headers: {
@@ -59,7 +77,9 @@ export const managerAPI = createApi({
                 },
                 body: {
                     name,
-                    breed,
+                    birthday,
+                    city,
+                    type: bloodType,
                 },
             }),
         }),
@@ -117,7 +137,9 @@ export const {
     useDeletePetMutation,
     useEditPetMutation,
     useAddAdMutation,
+    useGetPetsQuery,
     useGetAdsQuery,
 } = managerAPI;
 
-export const { signin, signup, getMe, addPet, updateMe } = managerAPI.endpoints;
+export const { signin, getPets, signup, getMe, addPet, updateMe } =
+    managerAPI.endpoints;

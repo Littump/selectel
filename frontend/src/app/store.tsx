@@ -2,10 +2,12 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import RegistrationSlice from "widgets/model/RegistrationSlice";
 import { managerAPI } from "../service/Service";
+import { userInfoReducer } from "./reducers/userReducer";
 
 const rootReducer = combineReducers({
     [managerAPI.reducerPath]: managerAPI.reducer,
     RegistrationSlice,
+    user: userInfoReducer,
 });
 
 const store = configureStore({

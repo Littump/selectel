@@ -8,6 +8,7 @@ import yandex from "../../assets/icons/yandex.svg";
 import { fetchRegister } from "widgets/model/RegistrationSlice";
 import { useNavigate } from "react-router-dom";
 import { useSigninMutation, useSignupMutation } from "service/Service";
+import { useEffect } from "react";
 const RegistrationWidget = () => {
     const methods = useForm({ mode: "all" });
     const { handleSubmit, setError } = methods;
@@ -24,8 +25,15 @@ const RegistrationWidget = () => {
         // 		}
         // 	})
         // }
-        signup({ username: 1, email: 2, password: 3 });
+        signup({
+            username: data.login,
+            email: "somemail@mail.ru",
+            password: data.password1,
+        });
     };
+    useEffect(()=>{
+        if(result.isSuccess) navigate('/login')
+    },[result, navigate])
     return (
         <div className={styles.wrapper}>
             <Title className={styles.title}>Регистрация</Title>
